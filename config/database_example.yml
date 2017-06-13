@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: upb_uploader_development
+
+test:
+  <<: *default
+  database: upb_uploader_test
+
+production:
+  <<: *default
+  database: upb_uploader_production
