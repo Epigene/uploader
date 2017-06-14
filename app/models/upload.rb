@@ -5,6 +5,7 @@ class Upload < ApplicationRecord
 
   validates :user_id, :user, presence: true
   validates_attachment_content_type :file, content_type: %r'.*'
+  validates_attachment_size :file, in: 0.megabytes..20.megabytes
 end
 
 # == Schema Information

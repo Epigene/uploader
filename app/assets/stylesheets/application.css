@@ -23,3 +23,28 @@
     text-align: center;
     color: green;
 }
+
+.uploads_table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 1px;
+    margin-bottom: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: none;
+    text-align: left;
+    padding: 7px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

@@ -17,7 +17,7 @@ class LoginController < ApplicationController
 
   # DELETE login_path | /login
   def destroy
-    session[:user_id].delete
+    session.delete(:user_id)
     redirect_to new_login_path, flash: {notice: "Logged out. Bye!"}
   end
 

@@ -1,0 +1,9 @@
+/ :upload
+= render "partials/header"
+
+h1 New File Upload
+
+= simple_form_for(upload, url: uploads_path) do |form|
+  = form.input :file, as: :file
+  br
+  = form.button :button, "Upload!", type: :submit

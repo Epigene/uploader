@@ -7,6 +7,10 @@ require 'rspec/rails'
 
 ActiveRecord::Migration.maintain_test_schema!
 
+require 'database_cleaner'
+DatabaseCleaner.strategy = :truncation#, {except: %w[widgets]}
+DatabaseCleaner.clean
+
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.use_transactional_fixtures = false

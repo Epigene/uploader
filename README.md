@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Uzdevums
+Izstrādāt web aplikāciju, kur lietotājs var pievienot (upload) dokumentus.  
+Lietotājam ir pieejami šādi skati/funkcionalitātes:
 
-Things you may want to cover:
+1. Autorizācija,
+2. Saraksts ar pievienotajiem dokumentiem,
+3. Dokumentu pievienošanas skats,
+4. Dokumenta lejupielādes skats,
+5. Dokumentu dzēšana,
+6. Pdf atskaite par ielādētajiem dokumentiem laika nogrieznī.
 
-* Ruby version
+Skati un funkcionalitātes ir definētas pietiekoši abstrakti, lai ir vieta improvizācijai, droši var izstrādāt pēc savas gaumes un ieskatiem.  
+Ja ir nepieciešami kādi papildus skati/funkcionalitātes, droši var tādus izstrādāt.
 
-* System dependencies
+## Funkcionalitāte
 
-* Configuration
+[Izstrādes dokuments](https://goo.gl/R7qnmZ)
 
-* Database creation
+## Izstrādes vides uzstādīšana
+1. Apskatiet `Gemfile`, uzstādiet vajadzīgo Ruby versiju un veiciet `bundle`.  
+2. Izveidojiet `config/database.yml` failu izmantojot `config/database_example.yml` un uzstādiet datubāzi ar `rails db:create db:migrate db:seed`
+3. Palaidiet `rails s` un apmeklējiet `localhost:3000`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Piegāde produkcijā (Heroku)
+1. Pievienojiet Heroku remote
+2. Veiciet `git push production master:master`

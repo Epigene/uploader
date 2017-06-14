@@ -18,6 +18,8 @@ module UpbUploader
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    config.autoload_paths << Rails.root.join('app/lib')
+
     config.generators do |generate|
       generate.helper false
       generate.assets false
