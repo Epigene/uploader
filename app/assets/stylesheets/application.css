@@ -1,18 +1,7 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.text {
+    font-family: arial, sans-serif;
+    line-height: 1.4;
+}
 
 .alert {
     text-align: center;
@@ -26,11 +15,28 @@
 
 .uploads_table {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 1px;
     margin-bottom: 3px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.report_table {
+    width: 100%;
+    max-width: 800px;
+    margin: 1px;
+    margin-bottom: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.mono {
+    font-family: "Courier New", Courier, monospace;
+}
+
+.with_border {
+    border-bottom: 1pt solid grey;
 }
 
 table {

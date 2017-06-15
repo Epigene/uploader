@@ -3,16 +3,22 @@ table style="width:1%; max-width:800px"
     / Log out
     td style="width:1%; background-color:white"
       = form_tag(login_path, method: :delete) do    
-        = submit_tag 'Log out'    
-    
-    / To index
-    - if controller_name != "uploads" || action_name != "index"
-      td style="width:1%; background-color:green"
-        = form_tag(uploads_path, method: :get) do
-          = submit_tag "To All Files"
-          
+        = submit_tag 'Log out'
+        
     / Add new      
     - if controller_name != "uploads" || !%w|new create edit|.include?(action_name)
       td style="width:1%; background-color:green"
         = form_tag(new_upload_path, method: :get) do    
-          = submit_tag "Upload New File"
+          = submit_tag "Upload New File" 
+    
+    / To index
+    - if controller_name != "uploads" || action_name != "index"
+      td style="width:1%; background-color:white"
+        = form_tag(uploads_path, method: :get) do
+          = submit_tag "To All Files" 
+          
+    / Report      
+    - if (controller_name != "report" || !%w|new show|.include?(action_name)) && current_user.uploads.exists?
+      td style="width:1%; background-color:white"
+        = form_tag(new_report_path, method: :get) do    
+          = submit_tag "Upload Report"

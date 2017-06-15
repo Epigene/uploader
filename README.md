@@ -20,8 +20,9 @@ Ja ir nepieciešami kādi papildus skati/funkcionalitātes, droši var tādus iz
 
 ## Izstrādes vides uzstādīšana
 1. Apskatiet `Gemfile`, uzstādiet vajadzīgo Ruby versiju un veiciet `bundle`.  
-2. Izveidojiet `config/database.yml` failu izmantojot `config/database_example.yml` un uzstādiet datubāzi ar `rails db:create db:migrate db:seed`
-3. Palaidiet `rails s` un apmeklējiet `localhost:3000`
+2. Parūpējieties, ka vidē darbojas PostgreSQL versija `~> 9.5.0`.  
+3. Izveidojiet `config/database.yml` failu izmantojot `config/database_example.yml` un uzstādiet datubāzi ar `rails db:create db:migrate db:seed`
+4. Palaidiet `rails s` un apmeklējiet `localhost:3000`
 
 ## Piegāde produkcijā (Heroku)
 1. Pievienojiet Heroku remote

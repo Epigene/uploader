@@ -23,8 +23,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.11', require: false
 
 gem "paperclip", '~> 5.1.0' # https://goo.gl/pEJ05z
-gem 'simple_form', '~> 3.5.0'
-gem 'kaminari', '~> 1.0.1'
+gem 'simple_form', '~> 3.5.0' # form builder
+gem 'kaminari', '~> 1.0.1' # paginator
+gem 'wicked_pdf', '~> 1.1.0', require: false # HTML -> PDF
+gem 'wkhtmltopdf-binary', '~> 0.12.3.1', require: false # used by wicked_pdf
+# gem 'rest-client', '~> 2.0.2', require: false # make HTTP requests
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3.6'

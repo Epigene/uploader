@@ -3,7 +3,9 @@
 
 h1 New File Upload
 
-= simple_form_for(upload, url: uploads_path) do |form|
-  = form.input :file, as: :file
+p.text Files up to 20MiB supported.
+
+= simple_form_for(upload, url: uploads_path) do |form|  
+  = form.input :file, as: :file, label: false
   br
   = form.button :button, "Upload!", type: :submit

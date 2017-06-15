@@ -1,0 +1,50 @@
+/ :uploads
+
+h1 Upload Report
+p.text
+  = "Uploads to #{current_user.email}'s account from #{report_start_date} to #{report_end_date}."
+  br
+  = "A total of #{uploads.size} files."
+
+/ only outpu table, especially header, only if there's files.
+- if uploads.size > 0    
+  / Header
+  table.report_table
+    tr
+      / Index number
+      th.with_border style="width:1%, min-width: 10px"
+        = "#"
+      
+      / Name and type  
+      th.with_border style="background-color:white; width:90%; min-width: 240px; text-align: center"
+        / file contents    
+        = "File name (type)"
+        
+      / Size
+      th.with_border style="background-color:white; width:10%; min-width: 80px; text-align: center"
+        = "File size"
+         
+      / Stamp
+      th.with_border style="background-color:white; width:10%; min-width: 200px; text-align: center"    
+        = "Created at"    
+
+  - uploads.each.with_index(1) do |upload, i|
+    table.report_table
+      tr
+        / Index number
+        td.with_border style="width:1%, min-width: 10px,text-align: center"
+          = i
+        
+        / Name and type  
+        td.with_border style="background-color:white; width:90%; min-width: 240px; text-align: center"
+          / file contents    
+          = "#{upload.file_file_name} (#{upload.file_content_type})"
+          
+        / Size
+        td.with_border style="background-color:white; width:10%; min-width: 80px; text-align: center"
+          = "#{Filesize.from("#{upload.file_file_size} B").pretty}"   
+           
+        / Stamp
+        td.with_border style="background-color:white; width:10%; min-width: 200px; text-align: center"    
+          = upload.file_updated_at.strftime("%F %T") 
+      

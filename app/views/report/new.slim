@@ -1,0 +1,21 @@
+= render "partials/header"
+
+h1 = "Upload Report"
+
+= form_tag(report_path, method: :get) do
+  = hidden_field_tag("format", 'pdf')
+
+  p.mono
+    = "Report start date"
+  = date_field_tag 'report_start_date'
+  
+  br
+  
+  p.mono
+   = "Report end date"
+  = date_field_tag 'report_end_date'
+  
+  br
+  br
+  
+  = submit_tag 'Get PDF Report'

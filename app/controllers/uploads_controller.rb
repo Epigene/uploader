@@ -35,11 +35,26 @@ class UploadsController < ApplicationController
   # GET upload_path | /files/:id
   def show
     upload = authorize_user_for_upload_resource
+    return if performed?
+
+    file_path = upload.file.path
+    options = {
+      filename: upload.file_file_name,
+      type: upload.file_content_type,
+      disposition: :attachment
+    }
+
+    send_file(file_path, options)
   end
 
   # DELETE upload_path | /files/:id
   def destroy
     upload = authorize_user_for_upload_resource
+    return if performed?
+
+    file_name = upload.file_file_name
+    upload.destroy
+    redirect_to uploads_path, flash: {notice: "#{file_name} deleted!"}
   end
 
   private
