@@ -26,7 +26,7 @@ class UploadsController < ApplicationController
     return if performed?
 
     if upload.update(upload_params)
-      redirect_to uploads_path, flash: {notice: "New file added!"}
+      redirect_to uploads_path, flash: {notice: "#{upload.file_file_name} added!"}
     else
       recover_from_bad_upload(upload)
     end
