@@ -1,4 +1,4 @@
-if Gem::Version.new(Bundler::VERSION) < Gem::Version.new('1.15.1') ||
+if Gem::Version.new(Bundler::VERSION) < Gem::Version.new('1.13.1') ||
   Gem::Version.new(Bundler::VERSION) >= Gem::Version.new('1.16.0')
   abort "Bundler version '~> 1.15.1' is required, you are running #{Bundler::VERSION}"
 end
