@@ -24,6 +24,13 @@ Ja ir nepieciešami kādi papildus skati/funkcionalitātes, droši var tādus iz
 3. Izveidojiet `config/database.yml` failu izmantojot `config/database_example.yml` un uzstādiet datubāzi ar `rails db:create db:migrate db:seed`
 4. Palaidiet `rails s` un apmeklējiet `localhost:3000`
 
-## Piegāde produkcijā (Heroku)
-1. Pievienojiet Heroku remote
+## Piegāde produkcijā (Dokku)
+https://uploader.dokku.testify.host
+
+1. Pievienojiet Dokku remote
+
+  ```
+  $ git remote add production dokku@<IP>:uploader  
+  ```
+
 2. Veiciet `git push production master:master`
