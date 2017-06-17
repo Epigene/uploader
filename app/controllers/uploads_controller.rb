@@ -2,7 +2,7 @@ class UploadsController < ApplicationController
 
   # GET uploads_path | /files
   def index
-    uploads = current_user.uploads
+    uploads = current_user.uploads.page(params[:page]).per(10)
     uploads_size = current_user.uploads.size
     render "uploads/index", locals: {uploads: uploads, uploads_size: uploads_size}
   end

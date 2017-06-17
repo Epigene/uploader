@@ -10,8 +10,6 @@ class ReportController < ApplicationController
 
   # GET report_path | /report
   def show
-    request.format = params[:format] if params[:format].present?
-
     redirect_to new_report_path, flash: {alert: "Please, specify both start and end"} and return if (params[:report_start_date].blank? || params[:report_end_date].blank?)
 
     redirect_to new_report_path, flash: {alert: "Please, specify a start date before end date"} and return if (report_start_date > report_end_date)
@@ -20,11 +18,13 @@ class ReportController < ApplicationController
       created_at: report_start_date.beginning_of_day..report_end_date.end_of_day
     )
 
+    request.format = "pdf" if pdf_requested?
+
     respond_to do |format|
       # serve PDF
       format.pdf do
         html = render_to_string("report/show", locals: {uploads: uploads})
-        pdf = WickedPdf.new.pdf_from_string(html)
+        pdf = WickedPdf.new.pdf_from_string(html, footer: { right: '[page] of [topage]' })
 
         path = Tempfile.new([SecureRandom.uuid, ".pdf"]).path
 
@@ -50,6 +50,10 @@ class ReportController < ApplicationController
   end
 
   private
+    def pdf_requested?
+      params[:output_format].to_s["PDF"].present?
+    end
+
     def forwardable_params
       params.permit(:report_start_date, :report_end_date)
     end

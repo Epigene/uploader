@@ -3,6 +3,6 @@
 = render "partials/header"
 h1 = "Your Files (#{uploads_size} total)"
 
-
+= paginate(uploads, window: 1)
 = render partial: "uploads/index_upload_row_header"
 = render partial: "uploads/index_upload_row", collection: uploads, as: :upload, spacer_template: "uploads/index_upload_row_divider"

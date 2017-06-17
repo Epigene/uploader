@@ -12,6 +12,9 @@ Bundler.require(*Rails.groups)
 
 module UpbUploader
   class Application < Rails::Application
+    config.time_zone = 'Riga'
+    config.active_record.default_timezone = :local # utc
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 

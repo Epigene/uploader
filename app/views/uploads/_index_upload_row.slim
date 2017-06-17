@@ -3,7 +3,7 @@
 table.uploads_table
   tr
     / DL button
-    td style="border: 1px solid powderblue; background-color:teal; width:1%" 
+    td style="border: 1px solid powderblue; background-color:teal; width:1%; height:1px" 
       = form_tag(upload_path(upload.id), method: :get) do    
         = submit_tag 'Download'   
     
@@ -18,7 +18,7 @@ table.uploads_table
     td style="border: 1px solid powderblue; background-color:white; width:10%; min-width: 200px; text-align: center"
       p
         = upload.file_updated_at.strftime("%F %T")
-    td style="border: 1px solid grey; background-color:grey; width:1%; min-width: 80px; text-align: center"
+    td style="border: 1px solid grey; background-color:grey; width:1%; min-width: 80px; height:1px; text-align: center"
       = form_tag(upload_path(upload.id), method: :delete) do    
         = submit_tag 'Remove'
   

@@ -16,10 +16,11 @@
 .uploads_table {
     width: 100%;
     max-width: 1000px;
+    height: 1px;
     margin: 1px;
     margin-bottom: 3px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 .report_table {
@@ -29,6 +30,14 @@
     margin-bottom: 3px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.report_submit_button_table {
+    background-color: transparent;
+    width: 10%;
+    max-width: 100px;
+    margin: 1px;
+    margin-left: 0px;
 }
 
 .mono {

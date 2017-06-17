@@ -5,6 +5,8 @@ p.text
   = "Uploads to #{current_user.email}'s account from #{report_start_date} to #{report_end_date}."
   br
   = "A total of #{uploads.size} files."
+  br
+  = "Report generated at #{Time.current.strftime("%F %T%z")}"
 
 / only outpu table, especially header, only if there's files.
 - if uploads.size > 0    
