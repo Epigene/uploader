@@ -3,7 +3,6 @@ h1 Welcome to Uploader!
 = form_tag(login_path, method: :post) do  
   p Email
   = email_field_tag 'email'
-  /= text_field_tag 'email', nil, size: 25, maxlength: 200
   br
 
   p Password
