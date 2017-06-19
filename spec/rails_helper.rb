@@ -1,3 +1,32 @@
+require 'simplecov'
+
+SimpleCov.start 'rails' do
+  add_filter '/spec/'
+
+  add_group 'Controllers' do |file|# 'app/controllers'
+    file.filename[%r'/app/controllers'].present? && file.filename[%r'/app/controllers/concerns'].blank?
+  end
+  add_group 'Controller Concerns' do |file|#, 'app/controllers/concerns'
+    file.filename[%r'/app/controllers/concerns'].present?
+  end
+
+  add_group 'Lib' do |file| #, 'app/lib'
+    file.filename[%r'/app/lib'].present?
+  end
+
+  add_group 'Models' do |file| #, 'app/models'
+    file.filename[%r'/app/models'].present? && file.filename[%r'/app/models/concerns'].blank?
+  end
+  add_group 'Model Concerns' do |file|#, 'app/controllers/concerns'
+    file.filename[%r'/app/models/concerns'].present?
+  end
+
+  add_group 'Helpers', 'app/helpers'
+  add_group 'App Code', 'app/'
+  add_group 'Jobs', 'app/jobs'
+  add_filter 'app/views'
+end
+
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
