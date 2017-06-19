@@ -12,12 +12,14 @@ table.uploads_table
       = "#{upload.file_file_name} (#{upload.file_content_type})"
       
     / size  
-    td style="border: 1px solid powderblue; background-color:white; width:10%; min-width: 80px; text-align: left"
-      p
-        = "#{Filesize.from("#{upload.file_file_size} B").pretty}"   
-    td style="border: 1px solid powderblue; background-color:white; width:10%; min-width: 200px; text-align: center"
-      p
-        = upload.file_updated_at.strftime("%F %T")
+    td style="border: 1px solid powderblue; background-color:white; width:10%; min-width: 80px; text-align: left"      
+      = "#{Filesize.from("#{upload.file_file_size} B").pretty}"   
+      
+    / stamp
+    td style="border: 1px solid powderblue; background-color:white; width:10%; min-width: 200px; text-align: center"      
+      = upload.file_updated_at.strftime("%F %T")
+    
+    / Delete button
     td style="border: 1px solid grey; background-color:grey; width:1%; min-width: 80px; height:1px; text-align: center"
       = form_tag(upload_path(upload.id), method: :delete) do    
         = submit_tag 'Remove'
